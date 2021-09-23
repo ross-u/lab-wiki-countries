@@ -27,11 +27,8 @@ function App() {
         </div>
         <div className="col-7">
           <Route exact path="/:alpha3Code" render={(props) => <CountryDetails {...props} countries={countries}/> } />
+          <Route exact path="/" component={Home} />
       </div>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        
-        </Switch>
       </div>
     </div>
     </div>
