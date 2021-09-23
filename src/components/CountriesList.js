@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 function CountriesList(props) {
-  const [countries, setCountries] = useState([]);
+/*   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     setCountries(props.countries);
-  }, []);
+  }, []); */
+
+  let countries = props.countries;
 
   return countries.map((country) => (
     <>
