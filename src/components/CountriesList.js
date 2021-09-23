@@ -5,9 +5,6 @@ import countries from './../countries.json';
 function Countrieslist(props) {
   const [countries, setCountries] = useState([]);
 
-  // This effect depends on `props.countries`.
-  // It will run on initial render and every time
-  // when the `props.projects` gets updated.
   useEffect(() => {
     setCountries(props.countries);
   }, [props.countries]);
