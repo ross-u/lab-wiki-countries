@@ -9,3 +9,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
+{/* <Link to={/projects/${project._id}}>{project.name}</Link> */}
