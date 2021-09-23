@@ -35,7 +35,7 @@ function CountryDetails(props) {
     <div>
       {countries && (
         <div>
-            <img src= {`https://web.archive.org/web/20210723151325/https://restcountries.eu/data/${countries.alpha3Code.toLowerCase()}.svg`} alt=""/>
+            <img className="img-details" src= {`https://web.archive.org/web/20210723151325/https://restcountries.eu/data/${countries.alpha3Code.toLowerCase()}.svg`} alt=""/>
             <h1>{countries.name}</h1>
             <div className="row">
                 <div className="col-6">
