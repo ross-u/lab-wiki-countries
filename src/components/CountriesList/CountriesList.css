@@ -1,0 +1,12 @@
+img {
+  width: 40px;
+  height: auto;
+}
+.list-group {
+  overflow: scroll;
+  max-height: calc(100vh - 78.2667px);
+}
+
+.list-group-item {
+  border-radius: 0 !important;
+}
