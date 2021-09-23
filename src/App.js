@@ -22,19 +22,6 @@ function App() {
       <br /><br />
 
       <CountriesList />
-
-      {/* 
-      <div className="container">
-        <div className="row">
-          <CountriesList />
-          <Switch>
-            <Route exact path="/" component={ChooseACountry} />
-            <Route exact path="/:A3C" component={CountryDetails} />
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-      </div> 
-      */}
       
     </div>
   );

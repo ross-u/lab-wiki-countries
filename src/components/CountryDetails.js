@@ -14,19 +14,19 @@ export default function CountryDetails(props) {
     // console.log(country);
 
     const borders = country.borders.map(border => {
-        const linkTo = countries.find(country => country.alpha3Code === border);
-        //console.log(linkTo);
+        const oneBorder = countries.find(country => country.alpha3Code === border);
+        //console.log(oneBorder);
 
         return (
             <h6 key={uuid()}>
-                <Link to={`/${linkTo.alpha3Code}`}>{linkTo.name}</Link>
+                <Link to={`/${oneBorder.alpha3Code}`}>{oneBorder.name}</Link>
             </h6>
         )
     })
 
     return (
         <div>
-            <img key={uuid()} src={`https://www.countryflags.io/${country.alpha2Code}/flat/64.png`} alt="small-country-flag"/>
+            <img key={uuid()} src={`https://www.countryflags.io/${country.alpha2Code}/shiny/64.png`} alt="small-country-flag"/>
             <h1>{country.name}</h1>
             <h5>Capital: {country.capital}</h5>
             <h5>Population: {(new Intl.NumberFormat('de-DE').format(country.population))}</h5>
