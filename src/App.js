@@ -1,13 +1,17 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import CountriesData from './countries.json';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import CountriesList from './components/CountriesList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CountryDetails from './components/CountryDetails';
 
 function App() {
-  const [countries, setCountries] = useState(CountriesData);
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    setCountries(CountriesData);
+  }, []);
   return (
     <div className="App">
       <Navbar />

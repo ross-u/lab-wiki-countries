@@ -1,5 +1,6 @@
 import countriesList from '../countries.json';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function CountryDetails(props) {
   const [countries, setCountries] = useState({
@@ -26,6 +27,14 @@ export default function CountryDetails(props) {
 
   console.log(countries);
 
+  const codeToName = (alpha3Code) => {
+    const nameObj = countriesList.find((countryObj) => {
+      return countryObj.alpha3Code === alpha3Code;
+    });
+    console.log(nameObj);
+    return nameObj.name;
+  };
+
   return (
     <div>
       <img
@@ -34,10 +43,43 @@ export default function CountryDetails(props) {
         alt=""
       />
       <h1>{countries.name}</h1>
-      {countries.alpha3Code.toLowerCase()}
+      <div className="row">
+        <div className="col-6">
+          <h4>Capital</h4>
+        </div>
+        <div className="col-6">
+          <h4>{countries.capital}</h4>
+        </div>
+      </div>
       <hr />
-      <h4>Capital {countries.capital}</h4>
-      <h4>Area {countries.area}</h4>
+      <div className="row">
+        <div className="col-6">
+          <h4>Area</h4>
+        </div>
+        <div className="col-6">
+          <h4>{countries.area}</h4>
+        </div>
+      </div>
+      <hr />
+      <div className="row">
+        <div className="col-6">
+          <h4>Borders</h4>
+        </div>
+        <div className="col-6">
+          <h4>
+            {countries.borders.map((alpha3Code) => {
+              return (
+                <Link
+                  to={`/countryDetails/${alpha3Code}`}
+                  className="linkStyle"
+                >
+                  <p>{codeToName(alpha3Code)}</p>
+                </Link>
+              );
+            })}
+          </h4>
+        </div>
+      </div>
     </div>
   );
 }

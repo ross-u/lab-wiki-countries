@@ -10,7 +10,10 @@ export default function CountriesList(props) {
           alt={props.country.name}
         ></img>
         <br />
-        <Link to={`/countryDetails/${props.country.alpha3Code}`}>
+        <Link
+          to={`/countryDetails/${props.country.alpha3Code}`}
+          className="linkStyle"
+        >
           {props.country.name}
         </Link>
       </Card.Body>
