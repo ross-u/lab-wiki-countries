@@ -1,14 +1,17 @@
-import Countries from "../countries.json"
+
 import { Link } from "react-router-dom"
 
-function CountriesList() {
-
+function CountriesList(props) {
 
     return(
         <ul>
 
-        {Countries.map((country) => (
-            <li><Link to={country.alpha3Code}>{country.name}</Link></li>
+        {props.countriesList.map((country) => (
+            
+            <li>
+                <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/32.png`}></img>
+                <Link to={country.alpha3Code}>{country.name}</Link>
+            </li>
         )
 
 
