@@ -8,15 +8,12 @@ export default function CountryDetails(props) {
         return props.countries.find(country => country.alpha3Code === border)
     })).map(country => {
         return (
-            <li><Link to={`/${country.alpha3Code}`}>{country.name}</Link></li>
+            <li key={country.name}><Link to={`/${country.alpha3Code}`}>{country.name}</Link></li>
         )
     })
-    console.log(newBorders);
-
-
     return (
         <div>
-            {/* <img src={country.flag} alt="country flag" style="width: 300px"/> */}
+           <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/64.png`} alt={country.name} />
             <h1>{country.name}</h1>
             <table className="table">
               <thead></thead>
