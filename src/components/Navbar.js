@@ -2,22 +2,12 @@ import { Link } from "react-router-dom";     // <== IMPORT
 
 function Navbar() {
   return (
-    <nav className="Navbar">
+    <nav className="Navbar text-white py-3 bg-primary">
       <ul>
-        <Link to="/"> WikiCountries </Link>             
+         WikiCountries          
       </ul>
     </nav>
   );
 }
 
 export default Navbar;
-
-
-
-
-{/* <nav class="navbar navbar-dark bg-primary mb-3">
-        <div class="container">
-          <a class="navbar-brand" href="/">WikiCountries</a>
-   
-          >
-      </nav> */}

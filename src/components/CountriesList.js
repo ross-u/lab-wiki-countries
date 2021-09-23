@@ -13,14 +13,14 @@ function CountriesList (props){
             <div className="list-group text-center">
       {countriesList.map((country) => {
         return (
+              <Link to={`/${country.alpha3Code}`}> 
           <div key={country.alpha3Code} className="list-group-item list-group-item-action">
               <img src= {`https://www.countryflags.io/${country.alpha2Code}/flat/32.png`} alt={country.name}/>
               <br/>
-              <Link to={`/${country.alpha3Code}`}> 
                 {country.name} 
-              </Link>
             
             </div>
+              </Link>
         );
     })}
     </div>

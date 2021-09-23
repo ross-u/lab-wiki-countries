@@ -16,14 +16,13 @@ function CountryDetails(props){
     }, [props.match.params.countryAlpha3Code]);
 
     return(
-         <div className="col-7">
+         <div className="col-7 pt-2 text-center">
       {!foundCountry && <h3>Country not found!</h3>}
 
       {foundCountry && (
         <>
-       <img src= {`https://www.countryflags.io/${foundCountry.alpha2Code}/flat/32.png`} alt={foundCountry.name}/>
+       <img className="w-50"src= {`https://web.archive.org/web/20210722165317/https://restcountries.eu/data/${foundCountry.alpha3Code.toLowerCase()}.svg`} alt={foundCountry.name}/>
           <h1>{foundCountry.name}</h1>
-          <h3>Capital: {foundCountry.capital}</h3>
           <table class="table">
                <thead></thead>
                <tbody>
@@ -43,7 +42,13 @@ function CountryDetails(props){
                      {foundCountry.borders.map ((country)=>{
                          return (
                              <Link to={`/${country}`}>
-                            {country} <br/></Link> 
+                                 {countriesData.map((country2)=>{
+                                     return(
+                                         <>
+                                         {country2.alpha3Code===country && <p>{country2.name}</p>}
+                                        </> 
+                                     )})}
+                             </Link> 
                          );
                      })}
                    </td>
@@ -52,7 +57,6 @@ function CountryDetails(props){
                  </table>
         
           <p>{foundCountry.region}</p>
-          <Link to="/">Back</Link>
         </>
       )}
     </div> 
