@@ -42,6 +42,7 @@ function CountryDetails(props){
                      {foundCountry.borders.map ((country)=>{
                          return (
                              <Link to={`/${country}`}>
+                                 {/* SHOW NAME INSTEAD OF ALPHA CODE */}
                                  {countriesData.map((country2)=>{
                                      return(
                                          <>

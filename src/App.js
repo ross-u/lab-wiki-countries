@@ -7,9 +7,6 @@ import CountryDetails from './components/CountryDetails'
 
 
 
-
-
-
 function App() {
   return (
     <div className="App">
@@ -17,15 +14,7 @@ function App() {
       <div className="container">
         <div className="row">
 
-
         <CountriesList  countries={countriesData} />
-        {/* <Route
-            exact
-            path="/"
-            render={(routeProps) => {
-              return <CountriesList {...routeProps} countries={countriesData} />;
-            }}
-          /> */}
             
       <Switch>
 
@@ -36,12 +25,6 @@ function App() {
               return <CountryDetails {...routeProps} countries={countriesData} />;
             }}
             />
-
-        {/* <Route 
-            exact 
-            path="" 
-            component={CountryDetails} 
-            /> */}
 
       </Switch>
       </div>
