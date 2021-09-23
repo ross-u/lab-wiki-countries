@@ -1,13 +1,46 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default function CountryDetails(props) {
     const countryId = props.match.params.alpha3Code;
-
     const country = props.countries.find(country => country.alpha3Code === countryId)
-    console.log(country);
+    const newBorders = country.borders.map((border => {
+        return props.countries.find(country => country.alpha3Code === border)
+    })).map(country => {
+        return (
+            <li><Link to={`/${country.alpha3Code}`}>{country.name}</Link></li>
+        )
+    })
+    console.log(newBorders);
+
+
     return (
         <div>
-            
+            {/* <img src={country.flag} alt="country flag" style="width: 300px"/> */}
+            <h1>{country.name}</h1>
+            <table className="table">
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <td style={{width:"30%"}}>Capital</td>
+                  <td>{country.capital}</td>
+                </tr>
+                <tr>
+                  <td>Area</td>
+                  <td>
+                    {country.area} km <sup>2</sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Borders</td>
+                  <td>
+                    <ul>
+                        {newBorders}
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
         </div>
     )
 }
