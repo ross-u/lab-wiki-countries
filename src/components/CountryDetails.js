@@ -13,7 +13,7 @@ export default function CountryDetails(props) {
     })
     return (
         <div>
-           <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/64.png`} alt={country.name} />
+           <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/64.png`} alt={country.name} style={{width:"300px"}}/>
             <h1>{country.name}</h1>
             <table className="table">
               <thead></thead>
