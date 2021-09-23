@@ -6,7 +6,7 @@ import CountriesList from './componants/CountriesList';
 import { useState, useEffect } from 'react';
 import countriesArr from './countries.json'
 
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import CountryDetails from './componants/CountryDetails';
 
 function App() {
