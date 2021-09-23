@@ -1,20 +1,28 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import CountriesList from "./components/CountriesList";
 import CountryDetails from "./components/CountryDetails";
-import { useState } from 'react';
-import { Route } from 'react-router-dom';
-import allCountries from './countries.json'
+import {Route, Switch} from "react-router";
+import {useState, useEffect} from 'react'
+import CountriesList from "./components/CountriesList";
+import countries from './countries.json';
 
 function App() {
-  
-  return (
-  <div className="App">
-    <Navbar />
+  const [countries, setCountries] = useState([]);
 
-    <CountriesList countries ={countries}/>
-    <Route exact path="/:alpha3Code" render={(props) => <CountryDetails {...props} countries={allCountries}/> } />
-  </div>
-  );
+  useEffect(() => {
+    setCountries(CountriesList);
+  }, [CountriesList]);
+  return (<div className = "App">
+  <Navbar/>
+<div className="container">
+  <div className="row" id="row">
+  <CountriesList countries={countries}/>
+  <Switch>
+<Route path="/:countryId" render={(props) => (<CountryDetails {...props} countries={countries}/>)} />
+</Switch>
+ </div>
+</div>
+</div>)
 }
+
 export default App;

@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-export default function Navbar() {
-	return (
-		
-		<nav class="navbar navbar-dark bg-primary mb-3">
-            <div class="container">
-			    <a className="navbar-brand" href="/">WikiCountries</a>
-            </div>
-		</nav>
-	)
+import { Link } from 'react-router-dom'
+
+function Navbar() {
+    return (
+        <div class="navbar navbar-dark bg-primary mb-3">
+            <Link to="/"><h1 class="navbar-brand">WikiCountries</h1></Link>
+        </div>
+    )
 }
+export default Navbar;
