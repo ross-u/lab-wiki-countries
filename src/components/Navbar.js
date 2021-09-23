@@ -1,8 +1,9 @@
+
 function Navbar() {
   return (
     <nav className="navbar navbar-dark bg-primary mb-3">
         <div className="container">
-            <a className="navbar-brand" href="/">WikiCountries</a>
+            <a className="navbar-brand" href="/countries">WikiCountries</a>
     </div>
   </nav>
   );
@@ -10,4 +11,3 @@ function Navbar() {
 
 export default Navbar;
 
-{/* <Link to={/projects/${project._id}}>{project.name}</Link> */}

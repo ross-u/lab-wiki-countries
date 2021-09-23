@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; 
 
 function CountriesList (props) {
   const [countries, setCountries] = useState([]);
@@ -11,16 +12,16 @@ function CountriesList (props) {
   return (
     <div>
       <h1>Countries</h1>
-      <div className="col-5">
+      <div>
       {countries.map((country) => {
         console.log(country)
         return (
             <div key={country.alpha3Code} className="country list-group">
-            <a class="list-group-item list-group-item-action" href="/{country.alpha3Code}">
-                <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/32.png`} alt={country.name} />
-                <p>{country.name}</p>
-            </a>
-          </div>
+                <Link to={`/countries/${country.alpha3Code}`} className="list-group-item list-group-item-action" >
+                    <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/32.png`} alt={country.name} />
+                    <p>{country.name}</p>
+                </Link>
+            </div>
         );
       })}
       </div>
