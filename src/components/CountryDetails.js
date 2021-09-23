@@ -23,9 +23,9 @@ function CountryDetails(props) {
         
     }, [props.countries, props.match.params.alpha3Code]);
 
-    const codeToName = (element)=>{
+    const codeToName = (alpha3Code)=>{
         const foundCountry  = props.countries.filter((countryObj) => {
-            return countryObj.alpha3Code === element;
+            return countryObj.alpha3Code === alpha3Code;
         })
         return foundCountry[0].name
     }
@@ -61,11 +61,11 @@ function CountryDetails(props) {
                 </div>
 
                 <div className="col-6">
-                    {countries.borders.map((element) => {
-                        console.log(element)
+                    {countries.borders.map((alpha3Code) => {
+                        console.log(alpha3Code)
                         return (
-                            <Link to={`/countries/` + element} className="link-style" >
-                                <p>{codeToName(element)}</p>
+                            <Link to={`/countries/` + alpha3Code} className="link-style" >
+                                <p>{codeToName(alpha3Code)}</p>
                             </Link>
 
                         );
