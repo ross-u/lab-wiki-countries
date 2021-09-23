@@ -1,6 +1,7 @@
 import React from 'react';
 import countriesArr from '../countries.json';
 import { Link } from 'react-router-dom';
+import { v4 as uuid } from 'uuid';
 
 export default function CountryDetails(props) {
     const countryCode = props.match.params.alpha3Code;
@@ -13,7 +14,7 @@ export default function CountryDetails(props) {
 
 
         return (
-        <div className="col-7">
+        <div className="col-7" key={country.alpha3Code}>
             <img src={`https://www.countryflags.io/${country.alpha2Code}/shiny/64.png`} alt="country flag" style={{"width": "300px"}}/>
             <h1>{country.name}</h1>
 
@@ -39,7 +40,7 @@ export default function CountryDetails(props) {
                 <td>
                     <ul>{country.borders.map(borders =>
                         (
-                            <li style={{"list-style-type" : "none"}}>
+                            <li key={ uuid()} style={{"listStyleType" : "none"}}>
                                 <Link to={`/${borders}`}>{borders}</Link>
                             </li>
                         ))}
