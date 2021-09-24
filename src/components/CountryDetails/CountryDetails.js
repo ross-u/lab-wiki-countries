@@ -5,7 +5,7 @@ import countriesListJson from '../../countries.json';
 import ListGroup from 'react-bootstrap/ListGroup';
 import './CountryDetails.css';
 
-function CountryDetails({ countriesData }) {
+function CountryDetails() {
   const [matchedCountry, setMatchedCountry] = useState(null);
   const [matchedCountryBorders, setMatchedCountryBorders] = useState(null);
   const { iso2 } = useParams();

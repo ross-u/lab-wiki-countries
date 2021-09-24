@@ -10,11 +10,6 @@ import { Col, Row, Container } from 'react-bootstrap';
 function App() {
   const [countriesData, setCountriesData] = useState([]);
 
-  // useEffect(() => {
-  //   setCountriesData(countriesListJson);
-  // }, []);
-
-  //Gives CORS error
   useEffect(() => {
     axios
       .get('https://api.countrystatecity.in/v1/countries', {
@@ -44,12 +39,7 @@ function App() {
                   exact
                   path="/:iso2"
                   render={(routeProps) => {
-                    return (
-                      <CountryDetails
-                        {...routeProps}
-                        countriesData={countriesData}
-                      />
-                    );
+                    return <CountryDetails {...routeProps} />;
                   }}
                 />
               </Col>
