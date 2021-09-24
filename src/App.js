@@ -1,30 +1,33 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import CountriesList from './components/CountriesList/CountriesList';
 import CountryDetails from './components/CountryDetails/CountryDetails';
-import countriesListJson from './countries.json';
 import { Col, Row, Container } from 'react-bootstrap';
 
 function App() {
   const [countriesData, setCountriesData] = useState([]);
 
-  useEffect(() => {
-    setCountriesData(countriesListJson);
-  }, []);
+  // useEffect(() => {
+  //   setCountriesData(countriesListJson);
+  // }, []);
 
   //Gives CORS error
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       'https://web.archive.org/web/20210723151325/https://restcountries.eu/rest/v2/all'
-  //     )
-  //     .then((response) => setCountriesData(response.data))
-  //     .catch((error) => {
-  //       console.error('There was an error!', error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get('https://api.countrystatecity.in/v1/countries', {
+        headers: {
+          'X-CSCAPI-KEY':
+            'Rno1S0dYbHBEZFVwNlRVSzJZQ0ZHNG83U1RnYXIyWE9UVGNGVUFYcQ==', // put in env
+        },
+      })
+      .then((response) => setCountriesData(response.data))
+      .catch((error) => {
+        console.error('There was an error!', error);
+      });
+  }, []);
 
   return (
     <div className="App">
@@ -39,7 +42,7 @@ function App() {
               <Col sm={9}>
                 <Route
                   exact
-                  path="/:alpha3Code"
+                  path="/:iso2"
                   render={(routeProps) => {
                     return (
                       <CountryDetails

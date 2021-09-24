@@ -6,10 +6,10 @@ function CountriesList({ countriesData }) {
   return (
     <ListGroup>
       {countriesData.map((country) => (
-        <ListGroup.Item key={country.alpha3Code}>
-          <Link to={`/${country.alpha3Code}`}>
+        <ListGroup.Item key={country.iso2}>
+          <Link to={`/${country.iso2}`}>
             <img
-              src={`https://www.countryflags.io/${country.alpha2Code}/flat/32.png`}
+              src={`https://www.countryflags.io/${country.iso2}/flat/32.png`}
               alt={`${country.name} flag`}
             />
             <p>{country.name}</p>
