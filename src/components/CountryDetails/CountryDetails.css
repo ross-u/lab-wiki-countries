@@ -1,7 +1,12 @@
+.main-flag {
+  width: 150px !important;
+  height: auto;
+}
+
 h4 {
   color: rgb(79, 141, 196) !important;
 }
 
 .list-group-item {
-  padding: 2rem;
+  padding: 1.5rem;
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import countriesListJson from '../../countries.json';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -31,7 +31,8 @@ function CountryDetails() {
           const border = countriesListJson.find((country) => {
             return country.alpha3Code === alpha3code;
           });
-          borders.push(border.name);
+
+          borders.push(border);
         });
 
         setMatchedCountryBorders(borders);
@@ -49,6 +50,11 @@ function CountryDetails() {
         <div>
           <ListGroup>
             <ListGroup.Item>
+              <img
+                src={`https://www.countryflags.io/${matchedCountry.alpha2Code}/shiny/64.png`}
+                alt={`${matchedCountry.name} flag`}
+                className="main-flag"
+              />
               <h1>{matchedCountry.name}</h1>
             </ListGroup.Item>
             <ListGroup.Item>
@@ -58,21 +64,14 @@ function CountryDetails() {
               <h4 className="pb-3">Area</h4> {matchedCountry.area}{' '}
               <span>km2</span>
             </ListGroup.Item>
-            <ListGroup.Item>
-              <h4 className="pb-3">Population</h4>
-              {(matchedCountry.population / 1000000).toFixed(2)}
-              <span> Millions</span>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <h4 className="pb-3">Currency</h4>
-              {matchedCountry.currencies[0].name} (
-              {matchedCountry.currencies[0].symbol})
-            </ListGroup.Item>
+
             <ListGroup.Item>
               <h4 className="pb-3">Borders:</h4>
               {matchedCountryBorders &&
                 matchedCountryBorders.map((border) => (
-                  <p key={border}>{border}</p>
+                  <Link key={border.alpha3Code} to={`/${border.alpha2Code}`}>
+                    <p>{border.name}</p>
+                  </Link>
                 ))}
 
               {!matchedCountryBorders.length && <p>No borders</p>}
