@@ -17,7 +17,13 @@ function App() {
     </div>
     <div className="rightColumn">
     <Switch>
-    <Route exact path="/:id" component={CountryDetails} />
+    {/* <Route exact path="/:id" component={CountryDetails} /> */}
+    <Route
+          exact path="/:id"
+          render={(props) => {
+            return <CountryDetails countries={countries} {...props} />;
+          }}
+        />
     </Switch>
     </div>
     </div>
