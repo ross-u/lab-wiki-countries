@@ -11,3 +11,10 @@
   padding-left: 30px;
 }
 
+.list-group>a{
+  text-decoration: none;
+}
+
+.table a{
+  text-decoration: none;
+}

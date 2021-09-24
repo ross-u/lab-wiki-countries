@@ -10,11 +10,12 @@ function CountriesList (props){
 
     return (
         <div className="col-5 scroll">
+            <h3>Country List</h3>
             <div className="list-group text-center">
       {countriesList.map((country) => {
         return (
-              <Link to={`/${country.alpha3Code}`}> 
-          <div key={country.alpha3Code} className="list-group-item list-group-item-action">
+              <Link key={country.alpha3Code} to={`/${country.alpha3Code}`}> 
+          <div  className="list-group-item list-group-item-action">
               <img src= {`https://www.countryflags.io/${country.alpha2Code}/flat/32.png`} alt={country.name}/>
               <br/>
                 {country.name} 
@@ -29,32 +30,3 @@ function CountriesList (props){
 }
 
 export default CountriesList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div class="col-5" style="max-height: 90vh; overflow: scroll">
-            <div class="list-group">
-
-            </div>
-</div> */}

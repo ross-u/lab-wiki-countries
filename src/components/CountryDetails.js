@@ -23,7 +23,7 @@ function CountryDetails(props){
         <>
        <img className="w-50"src= {`https://web.archive.org/web/20210722165317/https://restcountries.eu/data/${foundCountry.alpha3Code.toLowerCase()}.svg`} alt={foundCountry.name}/>
           <h1>{foundCountry.name}</h1>
-          <table class="table">
+          <table className="table">
                <thead></thead>
                <tbody>
                  <tr>
@@ -41,13 +41,13 @@ function CountryDetails(props){
                    <td>
                      {foundCountry.borders.map ((country)=>{
                          return (
-                             <Link to={`/${country}`}>
+                             <Link key={country} to={`/${country}`}>
                                  {/* SHOW NAME INSTEAD OF ALPHA CODE */}
                                  {countriesData.map((country2)=>{
                                      return(
-                                         <>
-                                         {country2.alpha3Code===country && <p>{country2.name}</p>}
-                                        </> 
+                                         <p key={country2.alpha3Code}>
+                                         {country2.alpha3Code===country && <i>{country2.name}</i> }
+                                        </p> 
                                      )})}
                              </Link> 
                          );
