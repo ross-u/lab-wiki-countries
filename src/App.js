@@ -19,7 +19,9 @@ function App() {
         <div className="row">
           <div className="col-6">
             {countries.map((country) => {
-              return <CountriesList country={country} />;
+              return (
+                <CountriesList key={country.alpha3Code} country={country} />
+              );
             })}
           </div>
           <div className="col-6">

@@ -1,6 +1,6 @@
 import countriesList from '../countries.json';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export default function CountryDetails(props) {
   const [countries, setCountries] = useState({
@@ -13,9 +13,9 @@ export default function CountryDetails(props) {
   });
   console.log(props);
 
-  const id = props.match.params.id;
+  const { id } = useParams();
 
-  console.log(id);
+  console.log(`params`, id);
 
   useEffect(() => {
     const country = countriesList.find((countryObj) => {
@@ -70,6 +70,7 @@ export default function CountryDetails(props) {
             {countries.borders.map((alpha3Code) => {
               return (
                 <Link
+                  key={alpha3Code}
                   to={`/countryDetails/${alpha3Code}`}
                   className="linkStyle"
                 >
