@@ -18,10 +18,12 @@ function App() {
      <div className="App">
       <Navbar />
       <Switch>
-      {/* <nav class="navbar navbar-dark bg-primary mb-3"> */}
-      {/* <Route exact path="/projects" component={CountriesList}/> */}
+      <div class="container">
+      <div class="row">
       <Route exact path="/:id" component={CountryDetails}/>  
       <CountriesList countryData={countryData} />
+      </div>
+      </div>
       <Route component={NotFound} />
       </Switch>
       <div>

@@ -19,14 +19,34 @@ export default function CountryDetails(props) {
   });
   console.log(borderCountries);
   return (
-    <div>
-      <h3>Capital: {country.name}</h3>
-      <h3>Area: {country.area} km2</h3>
+    <div class="col-7">
+      <img src={`https://www.countryflags.io/${country.alpha2Code}/shiny/32.png`} alt={country.name}/>
+      <h1>{country.name}</h1>
+      <table class="table">
+      <thead></thead>
+      <tbody>
+      <tr>
+      <td>Capital</td> 
+      <td>{country.name}</td>
+      </tr>
+      <tr>
+      <td>Area</td> 
+      <td>{country.area} km<sup>2</sup></td>
+      </tr>
+      <tr>
+      <td>Borders</td>
+      <td>
+      <ul>
       {borderCountries.map((borderCountry) => {
         return (
-            <Link to={`/${borderCountry.alpha3Code}`}><h5>{borderCountry.name}</h5></Link>
+          <Link to={`/${borderCountry.alpha3Code}`}><h6>{borderCountry.name}</h6></Link>
         )
       })}
+      </ul>
+      </td>
+      </tr>
+      </tbody>
+      </table>
     </div>
   );
 }
