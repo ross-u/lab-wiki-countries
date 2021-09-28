@@ -9,9 +9,9 @@ export default function CountriesList(props) {
             <div class="list-group">
                 {props.Countries.map(country => {
                     return (
-                        <div key={country.alpha3Code}>
+                        <div key={country.alpha3Code} className='countryListEl'>
                             <Link to={`/${country.alpha3Code}`}
-                                class="list-group-item list-group-item-action"
+                                className="list-group-item list-group-item-action listEl"
                                 key={country.alpha3Code}
                             >
                                 <img src={`https://www.countryflags.io/${country.alpha2Code}/shiny/64.png`} alt={`Flag of ${country.name}`} />

@@ -3,8 +3,8 @@ import React from 'react'
 export default function Navbar() {
     return (
         <nav class="navbar navbar-dark bg-primary">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Navbar</span>
+            <div className="container-fluid">
+                <span className="navbar-brand mb-0 h1 navbar">Countries-Wiki</span>
             </div>
         </nav>
     )

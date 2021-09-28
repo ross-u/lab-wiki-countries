@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+/* list */
+.list-div{
+  background-color: rgb(103, 70, 203);
+  border: 2px solid black;
+  overflow:scroll;
+  text-align: center;
+}
+
+.list-div:hover{
+
+  background-color: darkblue;
+}
+
+.countryListEl{
+
+  display: flex !important;
+  font-size: 25px;
+  background-color: darkblue !important;
+
+}
+
+.listEl:hover{
+
+  background-color: rgb(109, 109, 235) !important;
+  font-size:30px;
+ 
+
+}
+
+
+/* //details */
+
+.country-details-div{
+  
+  position: fixed;
+  top: 50px;
+  display:flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  margin-left: 400px;
+
+}
+
+
+/* nav */
+
+
+.navbar{
+
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+  color:black !important;
+}

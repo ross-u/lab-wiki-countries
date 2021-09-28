@@ -11,16 +11,14 @@ function App(props) {
   return (
     <div>
       <Navbar />
-      <div class="container">
-        <div class="row">
-          <div class="col-5 list-div">
-            <div class="list-group">
+      <div className="container">
+        <div className="row">
+          <div className="col-5 list-div">
+            <div className="list-group countries-list">
               <CountriesList Countries={Countries} />
             </div>
           </div>
-
           <Route exact path='/:countryCode' component={CountryDetails} />
-
         </div>
       </div>
     </div>
