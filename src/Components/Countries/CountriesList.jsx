@@ -1,19 +1,25 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
-import { Fragment, useState } from 'react';
+import axios from 'axios';
+import { Fragment, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import CountriesJSON from '../../countries.json';
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+// import CountriesJSON from '../../countries.json';
 
 const CountriesList = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const [countries, setCountries] = useState(CountriesJSON);
+  const [countries, setCountries] = useState([]);
 
-  console.log(countries);
+  useEffect(() => {
+    const getCountries = async () => {
+      let res = await axios.get(
+        `http://api.countrylayer.com/v2/all?access_key=${process.env.REACT_APP_COUNTRY_LAYER}`
+      );
+
+      setCountries(res.data);
+    };
+    getCountries();
+  }, []);
 
   return (
     <div className="h-screen flex overflow-hidden bg-gray-100">
@@ -119,16 +125,17 @@ const CountriesList = () => {
             </div>
             <div className="flex-1 flex flex-col overflow-y-auto">
               <nav className="flex-1 px-2 py-4 bg-gray-800 space-y-1">
-                {countries.map((item) => (
-                  <NavLink
-                    key={item.name}
-                    to="/"
-                    activeClassName="bg-gray-900 text-white"
-                    className="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white"
-                  >
-                    {item.name}
-                  </NavLink>
-                ))}
+                {countries &&
+                  countries.map((item) => (
+                    <NavLink
+                      key={item.name}
+                      to={`/${item.alpha3Code}`}
+                      activeClassName="bg-gray-900 text-white"
+                      className="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-300 hover:bg-gray-700 hover:text-white"
+                    >
+                      {item.name}
+                    </NavLink>
+                  ))}
               </nav>
             </div>
           </div>

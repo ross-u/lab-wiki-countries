@@ -18,12 +18,12 @@ function App() {
                 <Countries>
                   <Route
                     exact
-                    path={`${props.match.url}/:country`}
+                    path={`${props.match.url}:country`}
                     component={CountryDetails}
                   />
                   <Route
                     exact
-                    path={`${props.match.url}/`}
+                    path={`${props.match.url}`}
                     component={Welcome}
                   />
                 </Countries>
