@@ -3,12 +3,11 @@ import './App.css';
 import Countries from './Components/Countries';
 import CountryDetails from './Components/Countries/CountryDetails';
 import Welcome from './Components/Countries/Welcome';
-import Nav from './Layout/Nav';
 
 function App() {
   return (
     <Router>
-      <Nav />
+      {/* <Nav /> */}
       <Switch>
         <Route
           path="/"
