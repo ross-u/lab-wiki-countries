@@ -6,7 +6,7 @@ function CountriesList(props) {
   // console.log(countries);
 
   return (
-    <div style={{ width: "20%" }}>
+    <div className="countries" style={{ width: "20%" }}>
       <ul>
 
         {countries.map((e, index) => {
