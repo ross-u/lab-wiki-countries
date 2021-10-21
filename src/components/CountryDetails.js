@@ -54,7 +54,7 @@ return(
             <hr></hr>
             <div className="row">
                 <div className="col-6">
-                    <p>Borders</p>
+                    <p><b>Borders</b></p>
                 </div>
 
                 <div className="col-6">
