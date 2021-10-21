@@ -3,7 +3,7 @@ function Navbar() {
 		<nav className="navbar navbar-dark bg-primary mb-3">
 			<div className="container">
 				<a className="navbar-brand" href="/">
-					WikiCountries
+					<u>WikiCountries</u>
 				</a>
 			</div>
 		</nav>
