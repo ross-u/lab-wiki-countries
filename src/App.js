@@ -6,7 +6,7 @@ import CountryDetails from './components/CountryDetails';
 import { Switch, Route } from 'react-router-dom';
 import { useState, useEffect } from "react";
 
-
+//hay que termianrlo
 function App() {
   const [countries, setCountries] = useState([])
 
