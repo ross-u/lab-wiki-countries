@@ -21,10 +21,9 @@ function App() {
                         </div>
                     </div>
                     <div className="col-7">
-                        {/*<CountriesDetails/>*/}
-                        {/*<Routes>*/}
-                        {/*    <Route path="/:alpha3code" element={<CountriesDetails/>}/>*/}
-                        {/*</Routes>*/}
+                        <Routes>
+                            <Route path="/:alpha3code" element={<CountriesDetails/>}/>
+                        </Routes>
                     </div>
                 </div>
             </div>

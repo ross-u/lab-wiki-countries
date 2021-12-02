@@ -5,7 +5,7 @@ const Navbar = () => {
 
         <nav className="navbar navbar-dark bg-primary mb-3">
             <div className="container">
-                <Link class="navbar-brand" href="/">WikiCountries</Link>
+                <Link class="navbar-brand" to="/">WikiCountries</Link>
             </div>
         </nav>
     );
