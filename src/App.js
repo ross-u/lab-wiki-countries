@@ -1,27 +1,38 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import CountriesList from './components/CountriesList/CountriesList';
 import CountryDetails from './components/CountryDetails/CountryDetails';
 import Navbar from './components/Navbar/Navbar';
-import countriesFromJSON from './countries.json'
+import countriesFromJSON from './countries.json';
 
 function App() {
- 
-  const [countries, setCountries] = useState(countriesFromJSON)
+  const [countries, setCountries] = useState({});
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setCountries(countriesFromJSON);
+    setLoaded(true);
+  }, []);
 
   return (
-    <div className="App">
-      <Navbar />
-      <div className="container">
-        <div className="row">
-          <CountriesList countries={countries}/>
-          <Switch>
-            <Route exact path="/:id" render={() => <CountryDetails countries={countries}/>} />
-          </Switch>
+    loaded && (
+      <div className="App">
+        <Navbar />
+        <div className="container">
+          <div className="row">
+            <CountriesList countries={countries} />
+            <Switch>
+              <Route
+                exact
+                path="/:id"
+                render={() => <CountryDetails countries={countries} />}
+              />
+            </Switch>
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 }
 

@@ -1,13 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
 
 const CountryDetails = (props) => {
-
   const { countries } = props;
   const params = useParams();
-  const country = countries.find((countryFromJson) => { 
+  const country = countries.find((countryFromJson) => {
     return countryFromJson.alpha3Code === params.id;
   });
-  
+
   return (
     <div className="col-7">
       <img
@@ -16,7 +15,7 @@ const CountryDetails = (props) => {
         style={{ width: '100px' }}
       />
       <h1>{country.name.common}</h1>
-      <table class="table">
+      <table className="table">
         <thead></thead>
         <tbody>
           <tr>
@@ -36,6 +35,7 @@ const CountryDetails = (props) => {
                 {country.borders.map((border) => {
                   return (
                     <Link
+                      key={border + '_border'}
                       className="list-group-item list-group-item-action"
                       to={`/${border}`}
                     >
