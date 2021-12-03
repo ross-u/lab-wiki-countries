@@ -2,17 +2,20 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import CountriesDetails from "./components/CountriesDetails";
 import CountriesList from "./components/CountriesList";
-import countriesData from "./countries.json"
 import {Route, Routes} from "react-router-dom";
 import {useEffect, useState} from "react";
+import axios from "axios"
 
 function App() {
 
     const [countries, setCountries] = useState(null)
 
     useEffect(() => {
-        setCountries(countriesData)
+        axios.get("https://ih-countries-api.herokuapp.com/countries")
+            .then(response => setCountries(response.data))
+            .catch(err => console.log(err))
     }, [])
+
     if (!countries) return (<></>)
     return (
         <div className="App">

@@ -1,12 +1,21 @@
 import {Link, useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const CountriesDetails = ({countries}) => {
+
+    const [country, setCountry] = useState(null)
+    const params = useParams();
+
+    useEffect(() => {
+        axios.get(`https://ih-countries-api.herokuapp.com/countries/${params.alpha3code}`)
+            .then(response => setCountry(response.data))
+            .catch(err => console.log(err))
+    }, [params.alpha3code])
+
     const getCountryByCode = (code) => countries.find((c) => c.alpha3Code === code);
 
-    const params = useParams();
-    const country = getCountryByCode(params.alpha3code);
-
-    if (!countries) return (<></>)
+    if (!country || !countries) return (<></>)
     return (
         <>
             <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/32.png`} alt="country flag"
@@ -30,7 +39,8 @@ const CountriesDetails = ({countries}) => {
                     <td>
                         <div style={{display: 'flex', 'flex-direction': 'column'}}>
                             {
-                                country.borders.map(border => <Link class="navbar-brand" to={`/${border}`}>{getCountryByCode(border).name.common}</Link>)
+                                country.borders.map(border => <Link class="navbar-brand"
+                                                                    to={`/${border}`}>{getCountryByCode(border).name.common}</Link>)
                             }
                         </div>
                     </td>
