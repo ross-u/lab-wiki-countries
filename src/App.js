@@ -8,12 +8,12 @@ import {useEffect, useState} from "react";
 
 function App() {
 
-    const [countries, setCountries] = useState([])
+    const [countries, setCountries] = useState(null)
 
     useEffect(() => {
         setCountries(countriesData)
     }, [])
-
+    if (!countries) return (<></>)
     return (
         <div className="App">
 

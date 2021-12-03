@@ -6,6 +6,7 @@ const CountriesDetails = ({countries}) => {
     const params = useParams();
     const country = getCountryByCode(params.alpha3code);
 
+    if (!countries) return (<></>)
     return (
         <>
             <img src={`https://www.countryflags.io/${country.alpha2Code}/flat/32.png`} alt="country flag"
