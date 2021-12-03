@@ -2,10 +2,18 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import CountriesDetails from "./components/CountriesDetails";
 import CountriesList from "./components/CountriesList";
-import countries from "./countries.json"
+import countriesData from "./countries.json"
 import {Route, Routes} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 function App() {
+
+    const [countries, setCountries] = useState([])
+
+    useEffect(() => {
+        setCountries(countriesData)
+    }, [])
+
     return (
         <div className="App">
 
@@ -22,7 +30,7 @@ function App() {
                     </div>
                     <div className="col-7">
                         <Routes>
-                            <Route path="/:alpha3code" element={<CountriesDetails/>}/>
+                            <Route path="/:alpha3code" element={<CountriesDetails countries={countries}/>}/>
                         </Routes>
                     </div>
                 </div>

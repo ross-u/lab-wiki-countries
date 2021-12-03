@@ -1,7 +1,6 @@
 import {Link, useParams} from "react-router-dom";
-import countries from "../countries.json"
 
-const CountriesDetails = () => {
+const CountriesDetails = ({countries}) => {
     const getCountryByCode = (code) => countries.find((c) => c.alpha3Code === code);
 
     const params = useParams();
