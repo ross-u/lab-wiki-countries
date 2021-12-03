@@ -15,7 +15,6 @@ const CountryDetails = () => {
     return borderCountry.name.official
   }
 
-  console.log(getCountryName('ABW'))
   return (
     <div className="col-7">
       <img

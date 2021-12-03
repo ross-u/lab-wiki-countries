@@ -10,10 +10,14 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path='/' element={<CountriesList />} />
-        <Route path='/:id' element={<CountryDetails />} />
-      </Routes>
+      <div className='container'>
+        <div className='row'>
+          <CountriesList />
+          <Routes>
+            <Route path='/:id' element={<CountryDetails />} />
+          </Routes>
+        </div>
+      </div>
     </>
   )
 }
