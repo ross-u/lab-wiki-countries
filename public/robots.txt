@@ -1,3 +1,54 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+
+
+import CountL from "../countries.json"
+import { useParams, Link } from 'react-router-dom'
+import { CountryItem } from './CountryItem';
+export const CountryDetails = (props) => {
+  const { id } = useParams();
+  const country = CountL.find((c) => {   //  <== ADD
+    return c.alpha2Code === id;
+  });
+  const countryByName = (CName) => {
+    CountL.find((b) => {   //  <== ADD
+      return b.name.common === CName;
+  })};
+  return (
+    <div className="row">
+      {country && (
+        <div className="col-12">
+          <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} />
+          <h5 className="col-12" >
+            {country.name.common}
+            {
+              <ul>
+                {
+
+                  country.borders.map(
+
+                    border =>{
+                       <li>{border}
+{countryByName(border)} 
+hh
+                            <CountryItem country={countryByName(border)} />
+                    </li>
+                  }
+                  )
+                }
+
+              </ul>
+
+            }
+
+          </h5>
+
+        </div>
+      )}
+
+    </div>
+  )
+}
+
+export default CountryDetails;
