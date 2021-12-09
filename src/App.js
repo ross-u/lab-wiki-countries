@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Switch, Route } from "react-router-dom";
+import NavBar from './components/Navbar/NavBar';
+import CountriesList from './components/CountriesList/CountriesList';
+import CountriesData from './countries.json'
+import CountryDetails from './components/CountryDetails/CountryDetails';
+import { useEffect, useState } from 'react';
+
+
+
 
 function App() {
+ 
+  const [countriesData, setCountries] = useState(CountriesData)
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    setCountries(countriesData)
+    setLoaded(true)
+  }, [])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    loaded && <div className="App">
+      <NavBar />
+      <div className="container">
+        <div className="row">
+          <CountriesList countries={countriesData}/>
+          <Switch>
+            <Route exact path="/:a3c" render={() => <CountryDetails countries={countriesData} /> } />
+          </Switch>
+        </div> 
+      </div>     
     </div>
   );
 }
