@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(197, 197, 197, 0.644);
+}
+
+.left-side:hover {
+  background-color: rgba(245, 241, 241, 0.863);
+}
+
+.left-side img {
+  width: 40%;
+  padding: 3em;
+}
+
+.left-side h1 {
+  text-decoration: none;
+  border-bottom-style: none;
+  color: black;
+}
+
+.right-side {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border: 1px solid rgba(197, 197, 197, 0.644);
+}
+
+.stuff {
+  display:flex;
+  flex-direction: row;
+  width: 100vh;
+}
