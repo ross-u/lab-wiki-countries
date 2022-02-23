@@ -15,15 +15,13 @@ const CountriesList = () => {
             .then(response => {
                 setCountries(response.data)
             })
+           
     }, [])
+
 
     return (
         <>
-            <div>
-                <Routes >
-                    <Route CountryDetails={<CountryDetails />} />
-                </Routes >
-            </div>
+
             <div class="col-5 countryCol" >
                 {countries.map(country => {
 
@@ -42,6 +40,7 @@ const CountriesList = () => {
             </div>
         </>
     )
+
 }
 
 
