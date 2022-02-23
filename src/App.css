@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.countryList {
+  padding: 20px;
+  border: solid 1px #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.countryList img {
+  width: 20%;
+  margin: 0 auto;
+}
