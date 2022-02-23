@@ -44,13 +44,13 @@ function CountryDetails() {
             <hr />
             <h2> Capital: {country[0].capital} </h2>
             <h2> Area: {country[0].area}km2 </h2>
-            <ul>
+            <ul> 
                 {
                     country[0].borders.map((elm, idx) => {
                         return (
-                            <Link to={`/details/${elm}`}>
-                                <li >{elm}</li>
-                            </Link>
+                            <a key={idx} href={`/details/${elm}`}>
+                                <li >{elm}</li>  </a>
+                        
                         )
                     })
 
