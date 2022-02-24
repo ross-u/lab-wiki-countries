@@ -21,7 +21,6 @@ function CountriesList() {
                                     <Link to={`/countries/${elm.alpha2Code}`}>Check Country</Link>
                                     <hr />
                                 </div>
-
                             );
                         })}
 
