@@ -23,7 +23,7 @@ function App() {
         <Routes>
 
           <Route path='/CountriesList' element={<CountriesList countries={countriesFromJSON} />} />
-          <Route path='/CountryDetails/:alpha3Code' element={<CountryDetails />} />
+          <Route path='/CountryDetails/:alpha3Code' element={<CountryDetails countries={countriesFromJSON} />} />
 
         </Routes>
         
