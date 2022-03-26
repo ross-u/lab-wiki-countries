@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import axios from 'axios';
 
 function CountryDetails(props) {
   const [state, setState] = useState({
@@ -14,24 +14,29 @@ function CountryDetails(props) {
   const { alpha3Code } = useParams();
 
   useEffect(() => {
-    const foundCountry = props.countries.find(
-      (currentCountryObj) => currentCountryObj.alpha3Code === alpha3Code
-    );
+    async function fetchCountry() {
+      try {
+        const response = await axios.get(
+          `https://ih-countries-api.herokuapp.com/countries/${alpha3Code}`
+        );
 
-    if (foundCountry) {
-      const { name, capital, area, borders, alpha2Code } = foundCountry;
+        const { name, capital, area, borders, alpha2Code } = response.data;
 
-      setState({
-        name: name.common,
-        capital: capital,
-        area: area,
-        borders: borders,
-        alpha2Code: alpha2Code,
-      });
+        setState({
+          name: name.common,
+          capital: capital,
+          area: area,
+          borders: borders,
+          alpha2Code: alpha2Code,
+        });
+      } catch (err) {
+        console.log(err);
+      }
     }
-  }, [alpha3Code, props.countries]);
+    fetchCountry();
+  }, [alpha3Code]);
 
-  function getBoderName(code) {
+  function getBorderName(code) {
     const foundCountry = props.countries.find(
       (currentCountryObj) => currentCountryObj.alpha3Code === code
     );
@@ -40,7 +45,7 @@ function CountryDetails(props) {
       return foundCountry.name.common;
     }
 
-    return 'Country code not found';
+    return 'Border name not found';
   }
 
   return (
@@ -74,11 +79,10 @@ function CountryDetails(props) {
             <td>Borders</td>
             <td>
               <ul>
-                {state.borders.map((currentBoderCode) => (
-                  <li>
-                    <Link to={`/${currentBoderCode}`}>
-                      {' '}
-                      {getBoderName(currentBoderCode)}
+                {state.borders.map((currentBorderCode) => (
+                  <li key={currentBorderCode}>
+                    <Link to={`/${currentBorderCode}`}>
+                      {getBorderName(currentBorderCode)}
                     </Link>
                   </li>
                 ))}
