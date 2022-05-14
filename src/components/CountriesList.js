@@ -1,27 +1,25 @@
 import {Link} from 'react-router-dom'
 
 const CountriesList = (props) => {
+    
     return (
-    <div className="col-5" style={{maxHeight: '90vh', overflow: 'scroll'}}>
-
-
+        <div>
+        <h2>Countries2</h2>
+        <hr />
 
         {props.paises.map(country => {
             return (
+                <div key={country.alpha3Code} className="country">
+                    <h3>{country.name.official}</h3>
             
-            <div class="list-group">
-                <Link className='list-group-item list-group-item-action' 
-                to={'/{ }'}
-                key={}>
-                <img src={} alt={}/>
-                <p>{}</p>
-                </Link>
-            </div>
+                    <Link to={`/details/${country.alpha3Code}`}> {country.name.official}</Link>
+
+                    <hr />
+                </div>
             )
         })}
-
     </div>
-    );
+)
 }
 
 export default CountriesList
