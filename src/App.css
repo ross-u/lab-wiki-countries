@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.Clase1{ 
+  overflow:scroll ;
+}
+
+.ImgCoun{
+  width: 300px
+}
+.capital{
+  width: 30%
+}
